@@ -1,0 +1,60 @@
+<section class="wrapper">
+    <h3><i class="fa fa-angle-right"></i> 图文管理<i class="fa fa-angle-right"></i>修改图文</h3>
+
+    <div class="row mt">
+        <div class="col-lg-12">
+            <div class="form-panel">
+                <h4 class="mb"><i class="fa fa-angle-right"></i> 修改图文</h4>
+                <form class="form-horizontal tasi-form" method="post" action="http://mqian.wywwwxm.com/tp5/public/index.php/admin/tuwen/update"  name="myform" enctype="multipart/form-data">
+                    <div class="form-group has-success">
+                        <label class="col-sm-2 control-label col-lg-2">选择封面</label>
+                        <div class="col-lg-10">
+                            <select name="thumb_media_id">
+                                <option value="">{$row.thumb_media_id}</option>
+                                {volist name="sucai" id = "vo"}
+                                <option value="{$vo.media_id}" >{$vo.media_id}</option>
+                                {/volist}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group has-success">
+                        <label class="col-sm-2 control-label col-lg-2">是否显示封面</label>
+                        <div class="col-lg-10">
+                            <select name="show_cover_pic">
+                                <option value="">{$row.show_cover_pic}-</option>
+                                <option value="1" >是</option>
+                                <option value="0" >否</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group has-success">
+                        <label class="col-sm-2 control-label col-lg-2">图文标题</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" name="title" value="{$row.title}">
+                        </div>
+                    </div>
+                    <div class="form-group has-success">
+                        <label class="col-sm-2 control-label col-lg-2">图文摘要</label>
+                        <div class="col-lg-10">
+                            <textarea name="digest"  class="form-control" type="text" width="40" height="40">{$row.digest}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group has-success">
+                        <label class="col-sm-2 control-label col-lg-2">图文介绍</label>
+                        <div class="col-lg-10">
+                            <textarea name="content"  class="form-control" type="text" width="40" height="40">{$row.content}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-success">
+                        <label class="col-sm-2 control-label col-lg-2">图文原地址</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" name="content_source_url" value="{$row.content_source_url}">
+                        </div>
+                    </div>
+                    <input  type="hidden" name="id" value="{$row.id}"/>
+                    <button class="btn btn-success btn-xs">修改</button>
+                </form>
+            </div><!-- /form-panel -->
+        </div><!-- /col-lg-12 -->
+    </div></section>

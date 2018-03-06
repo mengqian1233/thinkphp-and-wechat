@@ -1,0 +1,85 @@
+<div id="_centent">
+
+    <div class="head">
+        <div class="head-img">
+            <img src="{$rows.headimgurl}">
+        </div>
+        <div class="head-dsb">
+            <p class="dsb-name">{$rows.nickname}</p>
+            <p class="dsb-id">{$rows.province}{$rows.city}</p>
+        </div>
+    </div>
+
+    <div class="nav">
+        <ul>
+            <li>
+                <i class="idt"></i>
+                <a href="javascript:;"><p>帮助</p></a>
+            </li>
+            <li class="pt-line">
+                <i class="clt"></i>
+                <a href="javascript:;"><p>收藏</p></a>
+            </li>
+            <li>
+                <i class="rcm"></i>
+                <a href="javascript:;"><p>推荐</p></a>
+            </li>
+        </ul>
+    </div>
+
+    <section class="mt-1">
+        <div class="ps-lt">
+            <div class="lt-dsb">
+                <a href="javascript:;">
+                    <p>我的产品</p></a>
+                <i class="arr-right"></i>
+            </div>
+        </div>
+    </section>
+
+    <section class="mt-2">
+        <div class="ps-lt">
+            <div class="lt-dsb cl-bb">
+                <p>消息推送通知</p>
+                <i class="check-on"></i>
+            </div>
+        </div >
+    </section>
+
+    <section class="mt-3">
+        <div class="ps-lt">
+            <div class="lt-dsb">
+                <a href="javascript:;"><p>猜你喜欢</p></a>
+                <i class="arr-right"></i>
+            </div>
+        </div>
+    </section>
+
+    <div class="jg"></div>
+</div>
+
+<script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+                var clientWidth = docEl.clientWidth;
+                if (!clientWidth) return;
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            };
+
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+<script type="text/javascript" src="http://mqian.wywwwxm.com/tp5/public/static/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+
+    $('a').click(function(){
+        alert('暂时开发中,敬请期待!');
+    });
+    $('.check-on').click(function(){
+        $(this).toggleClass('check-off');
+    })
+</script>

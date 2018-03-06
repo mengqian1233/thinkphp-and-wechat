@@ -1,0 +1,67 @@
+
+    <section class="wrapper">
+        <h3><i class="fa fa-angle-right"></i> 菜单管理<i class="fa fa-angle-right"></i>所有菜单</h3>
+
+        <div class="row mt">
+            <div class="col-md-12">
+                <div class="content-panel">
+                    <table class="table table-striped table-advance table-hover">
+                        <h4><i class="fa fa-angle-right"></i> 数据库菜单列表</h4>
+                        <hr>
+                        <thead>
+                        <tr>
+                            <th><i class="fa fa-bullhorn"></i> 主键id</th>
+                            <th class="hidden-phone"><i class="fa fa-question-circle"></i> 菜单名称</th>
+                            <th><i class=" fa fa-edit"></i> 添加时间</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {volist name="rows" id="vo"}
+                        <tr>
+                            <td>{$vo.id}</td>
+                            <td class="hidden-phone">{$vo.name}</td>
+                            <td>{$vo.create_time}</td>
+                            <td>
+                                <a class="btn btn-success btn-xs" href="http://mqian.wywwwxm.com/tp5/public/index.php/admin/menu/edit/id/{$vo.id}"><i class="fa fa-pencil"></i>修改</a>
+                                <a class="btn btn-primary btn-xs" href="http://mqian.wywwwxm.com/tp5/public/index.php/admin/menu/delete/id/{$vo.id}" onclick="deleteNews(this); return false;"><i class="fa fa-trash-o "></i>删除</a>
+                            </td>
+                        </tr>
+                        {/volist}
+
+                        </tbody>
+
+                    </table></div>
+                    <ul class="pagination">
+                    {$rows->render()}
+                    </ul>
+                <!-- /content-panel -->
+                </div><!-- /col-md-12 -->
+        </div><!-- /row -->
+
+    </section>
+
+<script>
+    function deleteNews(obj) {
+        if (confirm('您确定要删除该条记录吗?'))
+        {
+            target = obj;
+            $.ajax({
+                url:$(obj).attr('href'),
+                type:"DELETE",
+                success:function (data) {
+                    if(data == "ok"){
+                       // alert('删除成功');
+                        target.parentNode.parentNode.parentNode.removeChild(target.parentNode.parentNode);
+                    }
+                    else {
+                        alter('删除失败');
+                    }
+
+                }
+            });
+        }
+
+    }
+
+</script>

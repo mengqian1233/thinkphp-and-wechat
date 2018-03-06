@@ -1,0 +1,64 @@
+<div class="crumb-wrap">
+    <div class="crumb-list"><i class="icon-font"></i><a href="/admin/index/index">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">新闻管理</span></div>
+</div>
+
+<div class="result-wrap">
+    <form name="myform" id="myform" method="post">
+        <div class="result-title">
+            <div class="result-list">
+                <a href="http://mqian.wywwwxm.com/tp5/public/index.php/admin/menu/create"><i class="icon-font"></i>新增菜单</a>
+                <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
+                <a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>
+            </div>
+        </div>
+        <div class="result-content">
+            <table class="result-tab" width="100%">
+                <tr>
+                    <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
+                    <th>主键id</th>
+                    <th>菜单名称</th>
+                    <th>添加时间</th>
+                    <th>操作</th>
+                </tr>
+                {volist name="rows" id="vo"}
+                    <tr>
+                        <td class="tc"><input name="id[]" value="59" type="checkbox"></td>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.name}</td>
+                        <td>{$vo.create_time}</td>
+                        <td>
+                            <a class="link-update" href="http://mqian.wywwwxm.com/tp5/public/index.php/admin/menu/edit/id/{$vo.id}">修改</a>
+                            <a class="link-update" href="http://mqian.wywwwxm.com/tp5/public/index.php/admin/menu/delete/id/{$vo.id}" onclick="deleteNews(this); return false;">删除</a>
+                        </td>
+                    </tr>
+               {/volist}
+            </table>
+            <ul class="pagination">
+                {$rows->render()}
+            </ul>
+        </div>
+    </form>
+</div>
+<script>
+    function deleteNews(obj) {
+        if (confirm('您确定要删除该条记录吗?'))
+        {
+            target = obj;
+            $.ajax({
+                url:$(obj).attr('href'),
+                type:"DELETE",
+                success:function (data) {
+                    if(data == "ok"){
+                       // alert('删除成功');
+                        target.parentNode.parentNode.parentNode.removeChild(target.parentNode.parentNode);
+                    }
+                    else {
+                        alter('删除失败');
+                    }
+
+                }
+            });
+        }
+
+    }
+</script>

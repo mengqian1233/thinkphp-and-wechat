@@ -1,0 +1,40 @@
+<div id="_centent">
+
+    <div class="head">
+        <div class="head-img">
+            <img src="{$rows.headimgurl}">
+        </div>
+        <div class="head-dsb">
+            <p class="dsb-name">{$rows.nickname}</p>
+            <p class="dsb-id">{$rows.province}{$rows.city}</p>
+        </div>
+    </div>
+    <div class="nav">
+        <section class="mt-1">
+            <div class="ps-lt">
+                <div class="lt-dsb">
+                        <p><a class="a22" href="http://www.dell.com/zh-cn/work/learn/large-enterprise-solutions?~ck=mn">查看帮助</a></p>
+                    <i class="arr-right"></i>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="jg"></div>
+</div>
+
+<script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+                var clientWidth = docEl.clientWidth;
+                if (!clientWidth) return;
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            };
+
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+<script type="text/javascript" src="http://mqian.wywwwxm.com/tp5/public/static/js/jquery-1.7.1.min.js"></script>

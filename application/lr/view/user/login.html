@@ -1,0 +1,37 @@
+
+    <div class="container">
+
+        <form class="form-login" action="http://mqian.wywwwxm.com/tp5/public/index.php/lr/user/dologin" method="post">
+            <h2 class="form-login-heading">登录</h2>
+            <div class="login-wrap">
+                <input type="text"  name="username" class="form-control" placeholder="用户名" autofocus>
+                <br>
+                <input type="password"  name="password" class="form-control" placeholder="密码">
+                <br>
+                <input type="text" placeholder=" 验证码："  name="captcha" class="form-control">
+                <img src="{:captcha_src('login')}"  onclick="changeCaptcha(this)">
+
+                <button class="btn btn-theme btn-block"  type="submit"><i class="fa fa-lock"></i> 登录</button>
+                <hr>
+
+                <div class="registration">
+                    没有账号?<br/>
+                    <a class="" href="http://mqian.wywwwxm.com/tp5/public/index.php/lr/user/register">
+                        点击注册
+                    </a>
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+
+
+
+<script>
+        function changeCaptcha(obj)
+        {
+            //单击以后修改src属性
+            $(obj).attr('src',"{:captcha_src('login')}?"+Math.random());
+        }
+        </script>
